@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using Business.ModelView
+@model IEnumerable<ProductModel>
+
+@foreach (var item in Model)
+{
+    <h1>@item.ProductId</h1>
+    <h2>@item.ProductName</h2>
+
+}
