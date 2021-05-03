@@ -4013,7 +4013,33 @@
     <ProjectReference Include="..\Business.Services\Business.Services.csproj" />
     <ProjectReference Include="..\Data.BaseRepository\Data.BaseRepository.csproj" />
     <ProjectReference Include="..\Data.Entity\Data.Entity.csproj" />
+    <ProjectReference Include="..\Infrastructure.Utilities\Infrastructure.Utilities.csproj" />
     <ProjectReference Include="..\ProductsModel\Business.ModelView.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\KendoUi\js\cultures\" />
+    <Folder Include="wwwroot\KendoUi\js\messages\" />
+    <Folder Include="wwwroot\KendoUi\styles\Black\" />
+    <Folder Include="wwwroot\KendoUi\styles\BlueOpal\" />
+    <Folder Include="wwwroot\KendoUi\styles\Bootstrap\" />
+    <Folder Include="wwwroot\KendoUi\styles\Default\" />
+    <Folder Include="wwwroot\KendoUi\styles\Fiori\" />
+    <Folder Include="wwwroot\KendoUi\styles\Flat\" />
+    <Folder Include="wwwroot\KendoUi\styles\fonts\DejaVu\" />
+    <Folder Include="wwwroot\KendoUi\styles\fonts\glyphs\" />
+    <Folder Include="wwwroot\KendoUi\styles\HighContrast\" />
+    <Folder Include="wwwroot\KendoUi\styles\images\" />
+    <Folder Include="wwwroot\KendoUi\styles\MaterialBlack\" />
+    <Folder Include="wwwroot\KendoUi\styles\Material\" />
+    <Folder Include="wwwroot\KendoUi\styles\MetroBlack\" />
+    <Folder Include="wwwroot\KendoUi\styles\Metro\" />
+    <Folder Include="wwwroot\KendoUi\styles\Moonlight\" />
+    <Folder Include="wwwroot\KendoUi\styles\Nova\" />
+    <Folder Include="wwwroot\KendoUi\styles\Office365\" />
+    <Folder Include="wwwroot\KendoUi\styles\Silver\" />
+    <Folder Include="wwwroot\KendoUi\styles\textures\" />
+    <Folder Include="wwwroot\KendoUi\styles\Uniform\" />
   </ItemGroup>
 
 </Project>
