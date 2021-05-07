@@ -1,11 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@using Presentation.Dashboard.Resources
 @using Kendo.Mvc.UI
 @using Business.ModelView;
 @using Infrastructure.Utilities;
-@(Html.Kendo().Grid<ProductModel>()
+@inject LocalizationService LocalizationService
+
+
+<h1> @LocalizationService.GetLocalizedHtmlString("FullName")</h1>
+
+<h1> @LocalizationService.GetLocalizedHtmlString("City")</h1>
+
+<h1> @LocalizationService.GetLocalizedHtmlString("MobileNo")</h1>
+
+@*@(Html.Kendo().Grid<ProductModel>()
     .Name("Grid")
     .Columns(columns =>
     {
@@ -102,5 +111,5 @@
     .k-grid-content td {
         position: relative;
     }
-</style>
+</style>*@
 
