@@ -38,9 +38,10 @@
                                 <partial name="~/Views/Shared/Header/LanguageView.cshtml" />
                             </li>
                             @* Thông báo *@
-                            <li class="header-notification">
-                                <partial name="~/Views/Shared/Header/NotificationView.cshtml" />
-                            </li>
+                        <li class="header-notification">
+                            @*<partial name="~/Views/Shared/Header/NotificationView.cshtml" />*@
+                            @await Html.PartialAsync("_SetLanguagePartial")
+                        </li>
                             @* Người dùng login *@
                             <li class="user-profile header-notification">
                                 <partial name="~/Views/Shared/Header/UserProfileView.cshtml" />

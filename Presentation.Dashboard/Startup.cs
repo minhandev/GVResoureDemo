@@ -2,12 +2,18 @@
 using Data.Entity.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
+using Presentation.Dashboard.Resources;
+using System.Globalization;
+using System.Reflection;
 
 namespace Presentation.Dashboard
 {
@@ -23,21 +29,55 @@ namespace Presentation.Dashboard
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services
-                .AddControllersWithViews()
-                // Maintain property names during serialization. See:
-                // https://github.com/aspnet/Announcements/issues/194
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            #region Add language web
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddSingleton<LocalizationService>();
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization(options =>
+                {
+                    options.DataAnnotationLocalizerProvider = (type, factory) =>
+                    {
+                        var assemblyName = new AssemblyName(typeof(ApplicationResource).GetTypeInfo().Assembly.FullName);
+                        return factory.Create("ApplicationResource", assemblyName.Name);
+                    };
+                });
 
-            // Add Kendo UI services to the services container
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                //https://www.localeplanet.com/index.html
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("vi"),
+                    new CultureInfo("en"),
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("vi");
+
+                options.SupportedCultures = supportedCultures;
+
+                options.SupportedUICultures = supportedCultures;
+            });
+            #endregion
+
+            #region Add framework services.
+            services
+            .AddControllersWithViews()
+            .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            #endregion
+
+            #region Add Kendo UI 
             services.AddKendo();
+            #endregion
+
+            #region Add DbConnect
             //Add DbConnect
             var conn = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<GvResourceContext>(options => options.UseSqlServer(conn));
             //Add UnitOfWork & Repository
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,14 +90,17 @@ namespace Presentation.Dashboard
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            #region Add language web
+            var requestlocalizationOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(requestlocalizationOptions.Value);
+            #endregion
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
