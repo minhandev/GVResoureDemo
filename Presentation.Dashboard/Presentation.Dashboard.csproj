@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <None Include="Views\Shared\Content\ContentView.cshtml" />
-    <None Include="Views\Shared\Header\LanguageView.cshtml" />
     <None Include="Views\Shared\Header\LogoView.cshtml" />
     <None Include="Views\Shared\Header\NotificationView.cshtml" />
     <None Include="Views\Shared\Header\SearchView.cshtml" />
@@ -4018,6 +4017,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="wwwroot\KendoUi\js\cultures\" />
     <Folder Include="wwwroot\KendoUi\js\messages\" />
     <Folder Include="wwwroot\KendoUi\styles\Black\" />

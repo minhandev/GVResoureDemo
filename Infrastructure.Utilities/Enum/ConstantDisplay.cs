@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Utilities.Enum
 {
-    public class EnumConstantGrid
+    public class ConstantDisplay
     {
         public const string Grid_Index = "Grid_Index";
     }

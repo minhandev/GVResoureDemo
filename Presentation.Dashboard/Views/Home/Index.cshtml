@@ -8,13 +8,13 @@
 @inject LocalizationService LocalizationService
 
 
-<h1> @LocalizationService.GetLocalizedHtmlString("FullName")</h1>
+<h1> </h1>
 
 <h1> @LocalizationService.GetLocalizedHtmlString("City")</h1>
 
 <h1> @LocalizationService.GetLocalizedHtmlString("MobileNo")</h1>
 
-@*@(Html.Kendo().Grid<ProductModel>()
+@(Html.Kendo().Grid<ProductModel>()
     .Name("Grid")
     .Columns(columns =>
     {
@@ -22,10 +22,9 @@
             .ClientTemplate(
                 @"<div class='product-photo'
                     style='background-image: url(" + @Url.Content("~/shared/web/foods/#:data.ProductID#.jpg") + ");'></div><div class='product-name'>#: ProductName #</div>").Title("Product Name").Width(320);
-            columns.Bound(p => p.ProductId).Title("Unit Price").Width(150);
+            columns.Bound(p => p.Id).Title(@LocalizationService.GetLocalizedHtmlString("FullName")).Width(150);
             columns.Bound(p => p.UnitsInStock).Title("Units In Stock").Width(150).MinScreenWidth(800);
             columns.Bound(p => p.UnitsOnOrder).Title("Units On Order").Width(150).MinScreenWidth(800);
-            columns.Bound(p => p.Discontinued).Width(130);
             columns.Command(command => command.Destroy()).Width(160);
     })
     .ToolBar(toolbar =>
@@ -111,5 +110,5 @@
     .k-grid-content td {
         position: relative;
     }
-</style>*@
+</style>
 

@@ -1,0 +1,1 @@
+Scaffold-Dbcontext "Server=.\sqlexpress;Database=GVRS_DB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context GvResourceContext -force 

@@ -5,21 +5,20 @@ using System.Collections.Generic;
 
 namespace Data.Entity.Models
 {
-    public partial class Shipper
+    public partial class Position
     {
-        public Shipper()
+        public Position()
         {
-            Orders = new HashSet<Order>();
+            Customers = new HashSet<Customer>();
+            Employees = new HashSet<Employee>();
+            Suppliers = new HashSet<Supplier>();
         }
 
         public Guid Id { get; set; }
         public string Code { get; set; }
-        public string ShipperName { get; set; }
-        public string CompanyName { get; set; }
-        public string Phone { get; set; }
+        public string PositionName { get; set; }
         public string Description { get; set; }
         public string Note { get; set; }
-        public string FilePath { get; set; }
         public DateTime? DateUpdate { get; set; }
         public DateTime? DateCreate { get; set; }
         public string ServerCreate { get; set; }
@@ -28,6 +27,8 @@ namespace Data.Entity.Models
         public string UserUpdate { get; set; }
         public bool? IsDelete { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Supplier> Suppliers { get; set; }
     }
 }

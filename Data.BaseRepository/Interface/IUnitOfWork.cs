@@ -10,6 +10,6 @@ namespace Data.BaseRepository
 {
     public interface IUnitOfWork : IDisposable
     {
-        IQueryable<TEntity> Queryable<TEntity>() where TEntity : class;
+        IQueryable<TEntity> CreateQueryable<TEntity>() where TEntity : class;
     }
 }

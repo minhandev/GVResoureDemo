@@ -17,19 +17,9 @@ namespace Data.BaseRepository
         public UnitOfWork(GvResourceContext _context)
         {
             context = _context;
-            #region Phân vùng IRepository theo Context
-            //Product = new Repository<Product>(context);
-
-            //Match = new Repository<Match>(context);
-            #endregion
         }
 
-        #region Phân vùng IRepository theo Model
-        //public IRepository<Product> Product { get; }
-        //public IRepository<Match> Match { get; }
-        #endregion
-
-        public void Commit()
+        public void SaveChanges()
         {
              context.SaveChanges();
         }
@@ -39,7 +29,7 @@ namespace Data.BaseRepository
             context.Dispose();
         }
 
-        public IQueryable<TEntity> Queryable<TEntity>() where TEntity : class
+        public IQueryable<TEntity> CreateQueryable<TEntity>() where TEntity : class
         {
             return context.Set<TEntity>().AsQueryable();
         }

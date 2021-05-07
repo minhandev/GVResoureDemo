@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Data.BaseRepository;
 using System.Linq;
+using Data.Entity;
 
 namespace Business.Services
 {
@@ -18,12 +19,6 @@ namespace Business.Services
         {
             using (var context = new GvResourceContext())
             {
-                var UnitOfWork = new UnitOfWork(context);
-                var lstProduct = UnitOfWork.Queryable<Product>().Select(s=> new ProductModel { }).ToList();
-                if (lstProduct != null)
-                {
-                    return lstProduct;
-                }
                 return null;
             }
         }

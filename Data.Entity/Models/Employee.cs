@@ -9,33 +9,36 @@ namespace Data.Entity.Models
     {
         public Employee()
         {
-            EmployeeTerritories = new HashSet<EmployeeTerritory>();
-            InverseReportsToNavigation = new HashSet<Employee>();
             Orders = new HashSet<Order>();
         }
 
-        public int EmployeeId { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Title { get; set; }
-        public string TitleOfCourtesy { get; set; }
-        public DateTime? BirthDate { get; set; }
-        public DateTime? HireDate { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Region { get; set; }
-        public string PostalCode { get; set; }
-        public string Country { get; set; }
-        public string HomePhone { get; set; }
-        public string Extension { get; set; }
-        public byte[] Photo { get; set; }
-        public string Notes { get; set; }
-        public int? ReportsTo { get; set; }
-        public string PhotoPath { get; set; }
+        public Guid Id { get; set; }
+        public string Code { get; set; }
+        public string EmployeeName { get; set; }
+        public string Idno { get; set; }
+        public string Idcard { get; set; }
+        public string PassportNo { get; set; }
+        public string Phone { get; set; }
+        public string Description { get; set; }
+        public string Note { get; set; }
+        public string FilePath { get; set; }
+        public Guid? DepartmentId { get; set; }
+        public Guid? JobTitleId { get; set; }
+        public Guid? PositionId { get; set; }
+        public Guid? ProvinceId { get; set; }
+        public Guid? CountryId { get; set; }
+        public DateTime? DateUpdate { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public string ServerCreate { get; set; }
+        public string ServerUpdate { get; set; }
+        public string UserCreate { get; set; }
+        public string UserUpdate { get; set; }
+        public bool? IsDelete { get; set; }
 
-        public virtual Employee ReportsToNavigation { get; set; }
-        public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
-        public virtual ICollection<Employee> InverseReportsToNavigation { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual JobTitle JobTitle { get; set; }
+        public virtual Position Position { get; set; }
+        public virtual Province Province { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
