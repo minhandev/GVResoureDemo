@@ -16,7 +16,8 @@ namespace Presentation.Dashboard.Resources
 
         public LocalizedString GetLocalizedHtmlString(string key)
         {
-            return _localizer[key];
+            var _key = key.ToString();
+            return _localizer[_key];
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿@using Presentation.Dashboard.Resources
+@using Infrastructure.Utilities
+@inject LocalizationService LocalizationService
+<li class="pcoded-hasmenu">
+    <a href="javascript:void(0)" class="waves-effect waves-dark">
+        <span class="pcoded-micon">
+            <i class="feather icon-layers"></i>
+        </span>
+        <span class="pcoded-mtext">@LocalizationService.GetLocalizedHtmlString(ConstantDisplay.dmEmployee)</span>
+        @*<span class="pcoded-badge label label-danger">100+</span>*@
+    </a>
+    <ul class="pcoded-submenu">
+        <li class="">
+            <a asp-controller="Employee"
+               asp-action="Index"
+               class="waves-effect waves-dark">
+                <span class="pcoded-mtext">@LocalizationService.GetLocalizedHtmlString(ConstantDisplay.dmEmployeelist)</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+
+
+

@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FullName" xml:space="preserve">
-    <value>Tên đầy đủ</value>
+  <data name="dmCategory" xml:space="preserve">
+    <value>Danh mục</value>
   </data>
-  <data name="Id" xml:space="preserve">
-    <value>Thành phố</value>
+  <data name="dmEmployee" xml:space="preserve">
+    <value>Nhân viên</value>
   </data>
-  <data name="MobileNo" xml:space="preserve">
-    <value>MobileNo</value>
+  <data name="dmEmployeelist" xml:space="preserve">
+    <value>DS Nhân viên</value>
+  </data>
+  <data name="dmJobTitle" xml:space="preserve">
+    <value>DS Chức vụ</value>
   </data>
 </root>

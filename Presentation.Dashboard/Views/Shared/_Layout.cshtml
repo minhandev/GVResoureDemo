@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApplication</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/feather.css">
-    <link href="~/fontawesome-pro-5.2.0-web/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/fontawesome-pro-5.2.0-web/css/fontawesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/chartist.css" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/feather.css">
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
     <link href="~/Kendoui/css/kendo.bootstrap-v4.min.css" rel="stylesheet" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -38,9 +38,9 @@
                                 <partial name="~/Views/Shared/Header/LanguageView.cshtml" />
                             </li>
                             @* Thông báo *@
-                        <li class="header-notification">
-                            <partial name="~/Views/Shared/Header/NotificationView.cshtml" />
-                        </li>
+                            <li class="header-notification">
+                                <partial name="~/Views/Shared/Header/NotificationView.cshtml" />
+                            </li>
                             @* Người dùng login *@
                             <li class="user-profile header-notification">
                                 <partial name="~/Views/Shared/Header/UserProfileView.cshtml" />
@@ -56,137 +56,42 @@
                             <div class="pcoded-inner-navbar main-menu">
                                 <div class="pcoded-navigation-label">Navigation</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu active pcoded-trigger">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                            <span class="pcoded-mtext">Dashboard</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="active">
-                                                <a href="index.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Default</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="dashboard-crm.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">CRM</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Analytics</span>
-                                                    <span class="pcoded-badge label label-info ">NEW</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                            <span class="pcoded-mtext">Page layouts</span>
-                                            <span class="pcoded-badge label label-warning">NEW</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Vertical</span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="">
-                                                        <a href="menu-static.html" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Static Layout</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-header-fixed.html"
-                                                           class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Header Fixed</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-compact.html" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Compact</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-sidebar.html" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Sidebar Fixed</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Horizontal</span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="">
-                                                        <a href="menu-horizontal-static.html" target="_blank"
-                                                           class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Static Layout</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-horizontal-fixed.html" target="_blank"
-                                                           class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Fixed layout</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-horizontal-icon.html" target="_blank"
-                                                           class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Static With Icon</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-horizontal-icon-fixed.html" target="_blank"
-                                                           class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Fixed With Icon</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-bottom.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Bottom Menu</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
-                                        <a href="navbar-light.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-menu"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Navigation</span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-layers"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Widget</span>
-                                            <span class="pcoded-badge label label-danger">100+</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="widget-statistic.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Statistic</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="widget-data.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Data</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="widget-chart.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Chart Widget</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <partial name="~/Views/Shared/Menu/Employee.cshtml" />
+                                    <partial name="~/Views/Shared/Menu/Category.cshtml" />
+                                    @*<li class="">
+                                            <a href="navbar-light.html" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon">
+                                                    <i class="feather icon-menu"></i>
+                                                </span>
+                                                <span class="pcoded-mtext">Navigation</span>
+                                            </a>
+                                        </li>*@
+                                    @*<li class="pcoded-hasmenu">
+                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon">
+                                                    <i class="feather icon-layers"></i>
+                                                </span>
+                                                <span class="pcoded-mtext">Widget</span>
+                                                <span class="pcoded-badge label label-danger">100+</span>
+                                            </a>
+                                            <ul class="pcoded-submenu">
+                                                <li class="">
+                                                    <a href="widget-statistic.html" class="waves-effect waves-dark">
+                                                        <span class="pcoded-mtext">Statistic</span>
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="widget-data.html" class="waves-effect waves-dark">
+                                                        <span class="pcoded-mtext">Data</span>
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="widget-chart.html" class="waves-effect waves-dark">
+                                                        <span class="pcoded-mtext">Chart Widget</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>*@
                                 </ul>
                             </div>
                         </div>
@@ -219,11 +124,13 @@
     </div>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/pcoded.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-    <script src="~/js/vertical-layout.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="~/js/custom-dashboard.min.js"></script>
-    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="~/js/script.min.js"></script>
-    <script src="~/js/rocket-loader.min.js" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
+    <script src="~/fontawesome-pro-5.2.0-web/js/fontawesome.min.js"></script>
+    <script src="~/js/pcoded.min.js"></script>
+    <script src="~/js/rocket-loader.min.js"></script>
+    <script src="~/js/vertical-layout.min.js"></script>
+    <script src="~/js/custom-dashboard.min.js"></script>
+    <script src="~/js/script.min.js"></script>
+    <script src="~/jsContent/Common.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

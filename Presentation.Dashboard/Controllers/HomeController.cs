@@ -1,7 +1,8 @@
 ﻿using Business.Services;
+using Infrastructure.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.Extensions.Options;
 
 namespace Presentation.Dashboard.Controllers
 {
@@ -9,9 +10,9 @@ namespace Presentation.Dashboard.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> loggers)
         {
-            _logger = logger;
+            _logger = loggers;
         }
 
         public IActionResult Index()

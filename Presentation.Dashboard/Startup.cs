@@ -1,6 +1,8 @@
 ﻿using Data.BaseRepository;
 using Data.Entity;
 using Data.Entity.Models;
+using Infrastructure.Utilities;
+using Infrastructure.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -78,6 +80,9 @@ namespace Presentation.Dashboard
             //Add UnitOfWork & Repository
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddOptions();
+            // Hook our MyOptions class up to the corresponding appsettings section
+            services.Configure<Settings>(Configuration.GetSection(Settings.SectionName));
             #endregion
         }
 

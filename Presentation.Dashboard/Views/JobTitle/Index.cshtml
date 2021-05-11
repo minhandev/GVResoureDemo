@@ -1,0 +1,94 @@
+﻿@using Presentation.Dashboard.Resources
+@using Kendo.Mvc.UI;
+@using Business.ModelView;
+@using Infrastructure.Utilities;
+@inject LocalizationService LocalizationService
+@{
+    ViewData["Title"] = @LocalizationService.GetLocalizedHtmlString(ConstantDisplay.dmJobTitle);
+}
+
+
+
+
+
+@(Html.Kendo().Grid<JobTitleModel>()
+    .Name(ConstantID.Index_GridJobTitle.ToString())
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.JobTitleName).Title(@LocalizationService.GetLocalizedHtmlString(ConstantDisplay.JobTitleName)).Width(150);
+        columns.Bound(p => p.Code).Title(@LocalizationService.GetLocalizedHtmlString(ConstantDisplay.JobTitleCode)).Width(150).MinScreenWidth(800);
+        columns.Bound(p => p.Description).Title(@LocalizationService.GetLocalizedHtmlString(ConstantDisplay.Description)).Width(150).MinScreenWidth(800);
+        columns.Bound(p => p.Note).Title(@LocalizationService.GetLocalizedHtmlString(ConstantDisplay.Note)).Width(150).MinScreenWidth(800);
+        columns.Command(command => command.Destroy()).Width(160);
+    })
+
+    .Editable(editable => editable.Mode(GridEditMode.InCell))
+    .Pageable()
+    .Navigatable()
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Scrollable()
+    .Events(events => events.Sort("onSort"))
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Batch(true)
+        .PageSize(50)
+        .ServerOperation(false)
+        .Events(events => events.Error("error_handler"))
+        .Read("Products_Read", "Dashboard")
+
+    )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+    function onSort(e) {
+        var gridData = e.sender.dataSource.data()
+        gridData.forEach(function (element) {
+            if (!element.ProductName) {
+                e.preventDefault()
+            }
+        });
+    }
+</script>
+
+
+<style>
+    .product-photo {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-size: 32px 35px;
+        background-position: center center;
+        vertical-align: middle;
+        line-height: 32px;
+        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+        margin-left: 5px;
+    }
+
+    .product-name {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 32px;
+        padding-left: 3px;
+    }
+
+    .k-grid-content td {
+        position: relative;
+    }
+</style>
+
